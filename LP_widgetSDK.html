@@ -14,10 +14,24 @@
         lpTag.agentSDK.bind(
           'chatTranscript',
           (updateCallbackData) => {
+            console.log('There was an update...');
             console.log('updateCallbackData:', updateCallbackData);
           },
-          (notifyWhenDoneData) => {
-            console.log('notifyWhenDoneData:', notifyWhenDoneData);
+          (error) => {
+            console.log('Bind completed successfully...');
+            console.log('error:', error);
+          },
+        );
+
+        lpTag.agentSDK.bind(
+          'chatTranscript',
+          (updateCallbackData) => {
+            console.log('There was an update... #2');
+            console.log('updateCallbackData:', updateCallbackData);
+          },
+          (error) => {
+            console.log('Bind completed successfully... #2');
+            console.log('error:', error);
           },
         );
         resolve();
