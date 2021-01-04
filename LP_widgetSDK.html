@@ -7,17 +7,17 @@
   <script type="text/javascript" src="https://lpcdn.lpsnmedia.net/webagent/client-SDK.min.js"></script>
 
   <script type="text/javascript">
-  function getChatInfo() {
+  function getChatTranscript() {
     return new Promise((resolve, reject) => {
-      console.log('getChatInfo');
+      console.log('getChatTranscript');
       if (lpTag.agentSDK) {
         lpTag.agentSDK.bind(
-          'chatInfo',
+          'chatTranscript',
           (updateCallbackData) => {
-            console.log(updateCallbackData);
+            console.log('updateCallbackData:', updateCallbackData);
           },
           (notifyWhenDoneData) => {
-            console.log(notifyWhenDoneData);
+            console.log('notifyWhenDoneData:', notifyWhenDoneData);
           },
         );
         resolve();
@@ -28,11 +28,11 @@
   }
 
   function start() {
-    getChatInfo();
+    getChatTranscript();
   }
 
   if (lpTag.agentSDK) {
-    console.log('LP WidgetSDK :: LPTag has loaded');
+    console.log('LP_WidgetSDK');
     lpTag.agentSDK.init();
     start();
   }
